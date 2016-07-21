@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} <title> {{user.name}}的名片</title> {% endblock %}
+{% block content %}
+<p>{{user.name}}</p>
+<p>{{user.phone}}</p>
+<p>{{user.home_addr}}</p>
+<p>{{user.work_addr}}</p>
+<img src='{{MEDIA_URL}}/media/{{user.photo}}' />
+{% endblock content %}

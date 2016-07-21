@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% block title %}<title>classmates</title> {% endblock %}
+	{% block css   %} {% endblock %}
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+</head>
+<body >
+
+
+<div id="top">
+	<div id='logo' class='navigation'> <img src='{{MEDIA_URL}}/media/logo.png' alt='logo' /> </div>
+	<div class='navigation navigation_right'> <a class='navigation' href = {% url 'createclass'%}>创建班级</a></div>
+
+
+	{% if request.session.is_login %}
+		<div class='navigation' > <a class='navigation'  href = {% url 'profile' request.session.phone %}>我的名片</a></div>
+		<div class='navigation' > <a class='navigation'  href = {% url 'classprofile' %}>我的班级</a></div>
+		<div class='navigation' > <a class='navigation'  href = {% url 'about' %}>关于</a></div>
+		<div class='navigation navigation_right'> <a  class='navigation' href = {% url 'logout'%}>退出</a></div>
+		{% else %}
+
+		<div class='navigation' > <a class='navigation' href = {% url 'index' %}>主页</a></div>
+
+		{% block message %}
+		{% endblock %}
+
+		{% endif %}
+</div>
+
+
+{% block content %}
+{% endblock %}
+
+
+
+<div id="bottom"> <p>©m.Blackang | E-mail:178801721@QQ.com | Powered by Django </p> </div>
+
+</body>
+</html>
+

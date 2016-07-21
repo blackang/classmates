@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} <title>欢迎光临同学录</title> {% endblock %}
+
+{% block message %}
+	<div class='navigation' > <p id='message' class='navigation'>欢迎使用同学录</p></div>
+	{% endblock%}
+
+
+{% block content %}
+<div id='content'>
+<div class='left_content'>
+<p>请输入姓名和手机号码登录</p>
+<form method = 'post' >
+	{% csrf_token %}
+	{{ loginform.as_p }}
+	<input type="submit" name='login' value = "登录" />
+</form>
+</div>
+<div class='middle_content'>
+</div>
+
+<div class='right_content'>
+
+<p>或者，输入班级暗号加入班级</p>
+<form method = 'post' >
+	{% csrf_token %}
+	{{ checkpasswdform.as_p }}
+	<input type="submit"  name='checkpasswd' value = "验证" />
+</form>
+
+</div>
+</div>
+
+
+{% endblock %}
+
