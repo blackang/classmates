@@ -99,6 +99,7 @@ def regist(request):
 					student.save()
 					del request.session['myclass']
 					request.session['is_login']=True
+					request.session['phone']=student.phone
 					return render(request,'registsucess.html')
 				else:
 					del request.session['myclass']

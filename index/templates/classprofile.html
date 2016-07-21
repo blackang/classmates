@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+
+
 {% block content %}
+
 {% for s in classprofile %}
 
 	<a href= {% url 'profile' s.phone %}>{{s.name}},{{s.phone}}</a>
